@@ -26,8 +26,9 @@ namespace EncryptSharp
         }
 
         List<int> rand = new List<int>();
-
         Random random;
+        
+        const int LETTERCOUNT = 26;
 
         public string split(string phrase)
         {
@@ -38,12 +39,12 @@ namespace EncryptSharp
             {
                 if (Encryption.IsChecked == true)
                 {
-                    retString = retString + encrypt(words[i]) + " ";
+                    retString += encrypt(words[i]) + " ";
                 }
 
                 if (Decryption.IsChecked == true)
                 {
-                    retString = retString + decrypt(words[i]) + " ";
+                    retString += decrypt(words[i]) + " ";
                 }
             }
 
@@ -56,12 +57,12 @@ namespace EncryptSharp
             {
                 if (i < rand.Count)
                 {
-                    rand[i] = random.Next(0, 26);
+                    rand[i] = random.Next(0, LETTERCOUNT);
                 }
 
                 else 
                 {
-                    rand.Add(random.Next(0, 26));
+                    rand.Add(random.Next(0, LETTERCOUNT));
                 }
             }
 
@@ -75,9 +76,9 @@ namespace EncryptSharp
 
                 retArray[i] += (byte)rand[i];
                 
-                if (!(bArray[i] <= 25 + asciiCharCode))
+                if (!(bArray[i] <= LETTERCOUNT - 1 + asciiCharCode))
                 {
-                    retArray[i] = (byte)(((bArray[i] - asciiCharCode) % 26) + asciiCharCode);
+                    retArray[i] = (byte)(((bArray[i] - asciiCharCode) % LETTERCOUNT) + asciiCharCode);
                 }
             }
 
@@ -91,12 +92,12 @@ namespace EncryptSharp
                 {
                     if (i < rand.Count)
                     {
-                        rand[i] = random.Next(0, 26);
+                        rand[i] = random.Next(0, LETTERCOUNT);
                     }
 
                     else
                     {
-                        rand.Add(random.Next(0, 26));
+                        rand.Add(random.Next(0, LETTERCOUNT));
                     }
                 }
             
@@ -115,7 +116,7 @@ namespace EncryptSharp
 
                 else
                 {
-                    retArray[i] = (byte)(retArray[i] + 26 - rand[i]);
+                    retArray[i] = (byte)(retArray[i] + LETTERCOUNT - rand[i]);
                 }
             }
 
