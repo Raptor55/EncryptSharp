@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +20,15 @@ namespace EncryptSharp
     /// </summary>
     public partial class MainWindow : Window
     {
+    
+        List<int> rand = new List<int>();
+
+        Random random;
+        
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        List<int> rand = new List<int>();
-
-        Random random;
 
         public string split(string phrase)
         {
