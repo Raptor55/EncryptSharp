@@ -28,7 +28,7 @@
             </StackPanel>
             <TextBlock Text="Output Phrase:" HorizontalAlignment="Center" Margin="0,0,0,20">
             </TextBlock>
-            <TextBox Name="lol" Margin="0,0,0,5" IsReadOnly="True" TextAlignment="Center">
+            <TextBox Name="output" Margin="0,0,0,5" IsReadOnly="True" TextAlignment="Center">
             </TextBox>
         </StackPanel>
     </Grid>
