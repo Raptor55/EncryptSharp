@@ -149,7 +149,7 @@ namespace EncryptSharp
             }
             if (Encryption.IsChecked == true || Decryption.IsChecked == true)
             {
-                lol.Text = split(Box.Text);
+                output.Text = split(Box.Text);
             }
 
             else 
