@@ -25,6 +25,8 @@ namespace EncryptSharp
 
         Random random;
         
+        const int alphabetLetterCount = 26;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -57,12 +59,12 @@ namespace EncryptSharp
             {
                 if (i < rand.Count)
                 {
-                    rand[i] = random.Next(0, 26);
+                    rand[i] = random.Next(0, alphabetLetterCount);
                 }
 
                 else 
                 {
-                    rand.Add(random.Next(0, 26));
+                    rand.Add(random.Next(0, alphabetLetterCount));
                 }
             }
 
@@ -76,9 +78,9 @@ namespace EncryptSharp
 
                 retArray[i] += (byte)rand[i];
                 
-                if (!(bArray[i] <= 25 + asciiCharCode))
+                if (!(bArray[i] <= (alphabetLetterCount - 1) + asciiCharCode))
                 {
-                    retArray[i] = (byte)(((bArray[i] - asciiCharCode) % 26) + asciiCharCode);
+                    retArray[i] = (byte)(((bArray[i] - asciiCharCode) % alphabetLetterCount) + asciiCharCode);
                 }
             }
 
@@ -92,12 +94,12 @@ namespace EncryptSharp
                 {
                     if (i < rand.Count)
                     {
-                        rand[i] = random.Next(0, 26);
+                        rand[i] = random.Next(0, alphabetLetterCount);
                     }
 
                     else
                     {
-                        rand.Add(random.Next(0, 26));
+                        rand.Add(random.Next(0, alphabetLetterCount));
                     }
                 }
             
@@ -116,7 +118,7 @@ namespace EncryptSharp
 
                 else
                 {
-                    retArray[i] = (byte)(retArray[i] + 26 - rand[i]);
+                    retArray[i] = (byte)(retArray[i] + alphabetLetterCount - rand[i]);
                 }
             }
 
