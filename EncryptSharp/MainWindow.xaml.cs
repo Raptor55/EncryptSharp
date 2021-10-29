@@ -39,12 +39,12 @@ namespace EncryptSharp
             {
                 if (Encryption.IsChecked == true)
                 {
-                    retString = retString + encrypt(words[i]) + " ";
+                    retString += encrypt(words[i]) + " ";
                 }
 
                 if (Decryption.IsChecked == true)
                 {
-                    retString = retString + decrypt(words[i]) + " ";
+                    retString += decrypt(words[i]) + " ";
                 }
             }
 
