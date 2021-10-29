@@ -68,19 +68,19 @@ namespace EncryptSharp
                 }
             }
 
-            char[] cArray = word.ToCharArray();
-            byte[] bArray = Encoding.ASCII.GetBytes(cArray);
-            byte[] retArray = bArray;
+            char[] charArray = word.ToCharArray();
+            byte[] byteArray = Encoding.ASCII.GetBytes(cArray);
+            byte[] retArray = byteArray;
 
             for (int i = 0; i < word.Length; i++)
             {
-                byte asciiCharCode = char.IsUpper(cArray[i]) ? (byte)'A' : (byte)'a';
+                byte asciiCharCode = char.IsUpper(charArray[i]) ? (byte)'A' : (byte)'a';
 
                 retArray[i] += (byte)rand[i];
                 
-                if (!(bArray[i] <= (alphabetLetterCount - 1) + asciiCharCode))
+                if (!(byteArray[i] <= (alphabetLetterCount - 1) + asciiCharCode))
                 {
-                    retArray[i] = (byte)(((bArray[i] - asciiCharCode) % alphabetLetterCount) + asciiCharCode);
+                    retArray[i] = (byte)(((byteArray[i] - asciiCharCode) % alphabetLetterCount) + asciiCharCode);
                 }
             }
 
